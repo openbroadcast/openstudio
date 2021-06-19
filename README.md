@@ -24,11 +24,11 @@ Please add this components to your IDE:
 
 JCL + JVCL (unzip JVCL320CompleteJCL197-Build2172.zip from https://sourceforge.net/projects/jvcl/files/OldFiles/JVCL320CompleteJCL197-Build2172.zip/download into Borland/Delphi/Source and install JCL before JVCL)
 
+TServerSocket -> Component -> Install package -> Add " (C:/.../Borland/Delphi7/) bin/dclsockets70.bpl"
+
 RLed
 
 Mysql Component
-
-TServerSocket -> Component -> Install package -> Add " (C:/.../Borland/Delphi7/) bin/dclsockets70.bpl"
 
 CoolTrayIcon (https://github.com/coolshou/CoolTrayIcon)
 
