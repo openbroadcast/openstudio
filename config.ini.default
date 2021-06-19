@@ -1,0 +1,68 @@
+[MySQL]
+Host=localhost
+Login=root
+Password=
+Base=openstudio
+
+[Protection]
+Password=123
+
+
+######### PORTS
+# Ne touchez que si vous avez une _BONNE_ raison !
+ServerPort=3994
+ClientPort=3994
+
+[Start]
+#Démarrage du mode automatique
+Launch=0
+Locked=0
+
+[Soundcard]
+# ex: 1 = for carte 1 .. etc... (attention, ca commence à 1)
+DSC1=1
+DSC2=1
+JIN1=1
+JIN2=1
+PAD1=1
+PUB1=1
+CUE1=1
+REC1=1
+
+[Record]
+REC1=0
+
+[Multichannel]
+# 0 = SPEAKER_FRONT
+# 1 = SPEAKER_REAR
+# 2 = SPEAKER_CENTER
+# 3 = SPEAKER_REAR2
+## 0,1 0,1
+DSC1=0
+DSC2=0
+JIN1=0
+JIN2=0
+PAD1=0
+PUB1=0
+CUE1=0
+
+[Automation]
+# A partir du seuil suivant (65000 max)
+Silence=19000
+# Considérer que apres xxx ms en dessous du seuil on passe au suivant
+Fenetre=1000
+# A X secondes de la fin minimum
+Out=10
+# Ensuite, fader en xxx ms.
+Fade=2000
+
+[Tone]
+Niveau=100
+Frequence=20
+
+[Skip]
+Previous=5
+Next=5
+
+[DRC]
+Port=0

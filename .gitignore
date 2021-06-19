@@ -1,0 +1,9 @@
+*.exe
+*.lnk
+*.dcu
+*.ddp
+config.ini
+icons/
+log/
+dsp/
+lic/
