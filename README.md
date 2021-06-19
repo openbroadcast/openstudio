@@ -18,7 +18,7 @@ Copy config.ini.default to config.ini and set your MySQL password
 
 Please add this components to your IDE:
 
-JCL + JVCL (unzip JVCL320CompleteJCL197-Build2172.zip into Borland/Delphi/Source and install JCL before JVCL)
+JCL + JVCL (unzip JVCL320CompleteJCL197-Build2172.zip from https://sourceforge.net/projects/jvcl/files/OldFiles/JVCL320CompleteJCL197-Build2172.zip/download into Borland/Delphi/Source and install JCL before JVCL)
 
 RLed
 
