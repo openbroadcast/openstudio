@@ -26,7 +26,7 @@ JCL + JVCL (unzip JVCL320CompleteJCL197-Build2172.zip from https://sourceforge.n
 
 TServerSocket -> Component -> Install package -> Add " (C:/.../Borland/Delphi7/) bin/dclsockets70.bpl"
 
-RLed
+RLed (https://github.com/openbroadcast/rled)
 
 Mysql Component
 
