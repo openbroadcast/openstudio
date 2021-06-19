@@ -24,7 +24,7 @@ RLed
 
 Mysql Component
 
-TServerSocket -> Component -> Install package -> Add "/bin/dclsockets70.bpl"
+TServerSocket -> Component -> Install package -> Add " (C:/.../Borland/Delphi7/) bin/dclsockets70.bpl"
 
 CoolTrayIcon
 
