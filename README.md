@@ -24,7 +24,7 @@ RLed
 
 Mysql Component
 
-TServerSocket -> Composant -> Installer des paquets -> Ajouter "/bin/dclsockets70.bpl"
+TServerSocket -> Component -> Install package -> Add "/bin/dclsockets70.bpl"
 
 CoolTrayIcon
 
