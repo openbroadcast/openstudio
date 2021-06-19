@@ -4,7 +4,11 @@
 
 Install MySQL 5.5 (mysql-installer-community-5.5.60.1.msi) download from https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-community-5.5.60.1.msi
 
-Enable 'old passwords' with the command: SET PASSWORD FOR 'root'@'localhost' = OLD_PASSWORD('YOUR PASSWORD');
+Enable 'old passwords' with the command: 
+
+```
+SET PASSWORD FOR 'root'@'localhost' = OLD_PASSWORD('YOUR PASSWORD');
+```
 
 Install HeidiSQL https://www.heidisql.com/download.php
 
