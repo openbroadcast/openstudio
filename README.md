@@ -30,8 +30,8 @@ Mysql Component
 
 TServerSocket -> Component -> Install package -> Add " (C:/.../Borland/Delphi7/) bin/dclsockets70.bpl"
 
-CoolTrayIcon
+CoolTrayIcon (https://github.com/coolshou/CoolTrayIcon)
 
-InfoMP3
+InfoMP3 (http://www.phidels.com/php/toutpourmoteur.htm)
 
 VaComm (optional)
