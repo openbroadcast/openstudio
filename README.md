@@ -30,4 +30,4 @@ CoolTrayIcon
 
 InfoMP3
 
-VaComm (dossier Pira RDS) pour le PlayerMPX
+VaComm (optional)
