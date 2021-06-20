@@ -31,6 +31,6 @@ Mysql Component (https://codes-sources.commentcamarche.net/source/12262-composan
 
 CoolTrayIcon (https://github.com/coolshou/CoolTrayIcon)
 
-InfoMP3 (http://www.phidels.com/php/toutpourmoteur.htm)
+InfoMP3 (http://phidels.com/php/mescompo/zip/infomp3.zip)
 
 VaComm (optional, for another part of the OpenStudio project)
