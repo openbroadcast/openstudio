@@ -863,7 +863,7 @@ begin
   BASS_SetDevice(StrToInt(PAD1CART));
   pad1 := BASS_StreamCreateFile(False, Pchar(Filename), 0, 0, flags[StrToInt(PAD1CHAN)]); // Mode normal
 
-  //BASS_ChannelSetAttributes(pad1, -1, (100 - TrackBar5.position * (9 div 2)), -101);
+  BASS_ChannelSetAttribute(pad1, BASS_ATTRIB_VOL, 1 - (TrackBar3.position / 256));
 
   if BASS_ChannelPlay(pad1, False) then
   begin
