@@ -511,10 +511,11 @@ object Form1: TForm1
       Top = 4
       Width = 41
       Height = 165
-      Max = 31
+      Max = 256
       Orientation = trVertical
       TabOrder = 1
       TickMarks = tmBoth
+      TickStyle = tsManual
       OnChange = TrackBar3Change
     end
     object Panel14: TPanel
@@ -1158,10 +1159,12 @@ object Form1: TForm1
       Top = 4
       Width = 41
       Height = 165
-      Max = 31
+      Max = 256
       Orientation = trVertical
+      Position = 1
       TabOrder = 2
       TickMarks = tmBoth
+      TickStyle = tsManual
       OnChange = TrackBar1Change
     end
     object Panel23: TPanel
@@ -1463,10 +1466,11 @@ object Form1: TForm1
       Top = 139
       Width = 41
       Height = 129
-      Max = 31
+      Max = 256
       Orientation = trVertical
       TabOrder = 1
       TickMarks = tmBoth
+      TickStyle = tsManual
       OnChange = TrackBar4Change
     end
     object StringGrid1: TStringGrid
@@ -1595,10 +1599,11 @@ object Form1: TForm1
       Top = 141
       Width = 41
       Height = 129
-      Max = 31
+      Max = 256
       Orientation = trVertical
       TabOrder = 6
       TickMarks = tmBoth
+      TickStyle = tsManual
       OnChange = TrackBar5Change
     end
     object Panel10: TPanel
@@ -1943,10 +1948,11 @@ object Form1: TForm1
       Top = 140
       Width = 40
       Height = 129
-      Max = 31
+      Max = 256
       Orientation = trVertical
       TabOrder = 1
       TickMarks = tmBoth
+      TickStyle = tsManual
       OnChange = TrackBar2Change
     end
     object Panel5: TPanel

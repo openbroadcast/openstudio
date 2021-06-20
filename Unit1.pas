@@ -1114,7 +1114,6 @@ begin
   BASS_SetDevice(StrToInt(PUB1CART));
   BASS_StreamFree(pub1);
   BASS_SetDevice(StrToInt(REC1CART));
-  //BASS_StreamFree(chan);
   BASS_StreamFree(pfl_m1);
   BASS_StreamFree(pfl_m2);
   BASS_StreamFree(pfl_j1);
@@ -1247,9 +1246,9 @@ end;
 procedure TForm1.TrackBar1Change(Sender: TObject);
 var level: Double;
 begin
-  level:=(TrackBar1.position / 31) * 100;
-  //BASS_ChannelSetAttributes(m1, -1, 100 - round(level), -101);
-  label11.Caption := '-' + IntToStr(TrackBar1.position * 4) + 'dB';
+  level:=(TrackBar1.position / 256);
+  BASS_ChannelSetAttribute(m1, BASS_ATTRIB_VOL, 1 - level);
+  label11.Caption := FormatFloat('#.##',  100 - (level * 100));
 end;
 
 
@@ -1299,9 +1298,9 @@ end;
 procedure TForm1.TrackBar2Change(Sender: TObject);
 var level: Double;
 begin
-  level:=(TrackBar2.position / 31) * 100;
-  //BASS_ChannelSetAttributes(j1, -1, 100 - round(level), -101);
-  label10.Caption := '-' + IntToStr(TrackBar2.position * 4) + 'dB';
+  level:=(TrackBar2.position / 256);
+  BASS_ChannelSetAttribute(j1, BASS_ATTRIB_VOL, 1 - level);
+  label10.Caption := FormatFloat('#.##',  100 - (level * 100));
 end;
 
 procedure TForm1.test1Click(Sender: TObject);
@@ -1317,9 +1316,9 @@ end;
 procedure TForm1.TrackBar3Change(Sender: TObject);
 var level: Double;
 begin
-  level:=(TrackBar3.position / 31) * 100;
-  //BASS_ChannelSetAttributes(m2, -1, 100 - round(level), -101);
-  label12.Caption := '-' + IntToStr(TrackBar3.position * 4) + 'dB';
+  level:=(TrackBar3.position / 256);
+  BASS_ChannelSetAttribute(m2, BASS_ATTRIB_VOL, 1 - level);
+  label12.Caption := FormatFloat('#.##',  100 - (level * 100));
 end;
 
 procedure TForm1.Timer3Timer(Sender: TObject);
@@ -1427,9 +1426,9 @@ end;
 procedure TForm1.TrackBar4Change(Sender: TObject);
 var level: double;
 begin
-  level:=(TrackBar4.position / 31) * 100;
-  //BASS_ChannelSetAttributes(j2, -1, 100 - round(level), -101);
-  label6.Caption := '-' + IntToStr(TrackBar4.position * 4) + 'dB';
+  level:=(TrackBar4.position / 256);
+  BASS_ChannelSetAttribute(j2, BASS_ATTRIB_VOL, 1 - level);
+  label6.Caption := FormatFloat('#.##',  100 - (level * 100));
 end;
 
 procedure TForm1.JingleChoiceChange(Sender: TObject);
@@ -1560,9 +1559,9 @@ end;
 procedure TForm1.TrackBar5Change(Sender: TObject);
 var level: double;
 begin
-  level:=(TrackBar5.position / 31) * 100;
-  //BASS_ChannelSetAttributes(pad1, -1, 100 - round(level), -101);
-  label39.Caption := '-' + IntToStr(TrackBar5.position * 4) + 'dB';
+  level:=(TrackBar5.position / 256);
+  BASS_ChannelSetAttribute(pad1, BASS_ATTRIB_VOL, 1 - level);
+  label39.Caption := FormatFloat('#.##',  100 - (level * 100));
 end;
 
 procedure TForm1.Timer9Timer(Sender: TObject);
