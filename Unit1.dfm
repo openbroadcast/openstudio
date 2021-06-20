@@ -647,31 +647,6 @@ object Form1: TForm1
       Images = ImageList1
       ImageIndex = 20
     end
-    object brakem2: TJvImgBtn
-      Left = 33
-      Top = 173
-      Width = 24
-      Height = 24
-      Hint = 'Brake'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 5
-      Visible = False
-      OnClick = brakem2Click
-      HotTrackFont.Charset = ANSI_CHARSET
-      HotTrackFont.Color = clWindowText
-      HotTrackFont.Height = -12
-      HotTrackFont.Name = 'Tahoma'
-      HotTrackFont.Style = []
-      Images = ImageList1
-      ImageIndex = 152
-    end
     object Stop2: TJvImgBtn
       Left = 64
       Top = 173
@@ -684,7 +659,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       OnClick = Stop2Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -706,7 +681,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 6
       OnClick = Play2Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -728,7 +703,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 7
       OnClick = Pause2Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -751,7 +726,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 8
       OnClick = Playlist1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -774,7 +749,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 10
+      TabOrder = 9
       OnClick = Waitlist1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1275,31 +1250,6 @@ object Form1: TForm1
       Images = ImageList1
       ImageIndex = 20
     end
-    object brakem1: TJvImgBtn
-      Left = 33
-      Top = 173
-      Width = 24
-      Height = 24
-      Hint = 'Brake'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 5
-      Visible = False
-      OnClick = brakem1Click
-      HotTrackFont.Charset = ANSI_CHARSET
-      HotTrackFont.Color = clWindowText
-      HotTrackFont.Height = -12
-      HotTrackFont.Name = 'Tahoma'
-      HotTrackFont.Style = []
-      Images = ImageList1
-      ImageIndex = 152
-    end
     object Stop1: TJvImgBtn
       Left = 65
       Top = 173
@@ -1312,7 +1262,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       OnClick = Stop1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1334,7 +1284,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 6
       OnClick = Play1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1356,7 +1306,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 7
       OnClick = Pause1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1379,7 +1329,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 9
+      TabOrder = 8
       OnClick = Playlist1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1402,7 +1352,7 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 10
+      TabOrder = 9
       OnClick = Waitlist1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText

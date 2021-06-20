@@ -567,7 +567,7 @@ begin
   if ((Events.pagedepub = True)) then
   begin
     silence.Enabled := False; // Plus de détection silence
-    //BASS_ChannelSlideAttributes(Form1.m1, -1, -2, -101, Form1.AUTOFADEOUT);
+    BASS_ChannelSlideAttribute(Form1.m1, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Event
     Events.diffuser.OnClick(sender);
 
@@ -578,7 +578,7 @@ begin
   else
   begin
     silence.Enabled := False; // Plus de détection silence
-    //BASS_ChannelSlideAttributes(Form1.m1, -1, -2, -101, Form1.AUTOFADEOUT);
+    BASS_ChannelSlideAttribute(Form1.m1, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Lecteur suivant (on passe de m1 à m2 ici)
 
     if (Player2PreLoad = True) then
@@ -606,7 +606,7 @@ begin
   if ((Events.pagedepub = True)) then
   begin
     silence.Enabled := False; // Plus de détection silence
-    //BASS_ChannelSlideAttributes(Form1.m2, -1, -2, -101, Form1.AUTOFADEOUT);
+    BASS_ChannelSlideAttribute(Form1.m2, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Event
     Events.diffuser.OnClick(sender);
 
@@ -617,7 +617,7 @@ begin
   else
   begin
     silence.Enabled := False; // Plus de détection silence
-    //BASS_ChannelSlideAttributes(Form1.m2, -1, -2, -101, Form1.AUTOFADEOUT);
+    BASS_ChannelSlideAttribute(Form1.m2, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Lecteur suivant (on passe de m2 à m1 ici)
 
     if (Player1PreLoad = True) then

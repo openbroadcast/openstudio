@@ -127,7 +127,6 @@ type
     Panel24: TPanel;
     cue2: TEdit;
     fadem1: TJvImgBtn;
-    brakem1: TJvImgBtn;
     Stop1: TJvImgBtn;
     Play1: TJvImgBtn;
     Pause1: TJvImgBtn;
@@ -141,7 +140,6 @@ type
     Pausej1: TJvImgBtn;
     retourpub: TJvImgBtn;
     fadem2: TJvImgBtn;
-    brakem2: TJvImgBtn;
     Stop2: TJvImgBtn;
     Play2: TJvImgBtn;
     Pausem2: TJvImgBtn;
@@ -217,13 +215,11 @@ type
     procedure Stop1Click(Sender: TObject);
     procedure Pause1Click(Sender: TObject);
     procedure fadem1Click(Sender: TObject);
-    procedure brakem1Click(Sender: TObject);
     procedure Playlist1Click(Sender: TObject);
     procedure Waitlist1Click(Sender: TObject);
     procedure pflm1Click(Sender: TObject);
     procedure cutm1Click(Sender: TObject);
     procedure fadem2Click(Sender: TObject);
-    procedure brakem2Click(Sender: TObject);
     procedure Stop2Click(Sender: TObject);
     procedure Play2Click(Sender: TObject);
     procedure Pause2Click(Sender: TObject);
@@ -1644,11 +1640,11 @@ begin
     Timer13.Enabled := True; // compteurs
 
   // Couper les autres en fade
-    //if BASS_ChannelIsActive(m1) = 1 then BASS_ChannelSlideAttributes(m1, -1, -2, -101, 250);
-    //if BASS_ChannelIsActive(m2) = 1 then BASS_ChannelSlideAttributes(m2, -1, -2, -101, 250);
-    //if BASS_ChannelIsActive(j1) = 1 then BASS_ChannelSlideAttributes(j1, -1, -2, -101, 250);
-    //if BASS_ChannelIsActive(j2) = 1 then BASS_ChannelSlideAttributes(j2, -1, -2, -101, 250);
-    //if BASS_ChannelIsActive(pad1) = 1 then BASS_ChannelSlideAttributes(pad1, -1, -2, -101, 250);
+    if BASS_ChannelIsActive(m1) = 1 then BASS_ChannelSlideAttribute(m1, BASS_ATTRIB_VOL, 0, 250);
+    if BASS_ChannelIsActive(m2) = 1 then BASS_ChannelSlideAttribute(m2, BASS_ATTRIB_VOL, 0, 250);
+    if BASS_ChannelIsActive(j1) = 1 then BASS_ChannelSlideAttribute(j1, BASS_ATTRIB_VOL, 0, 250);
+    if BASS_ChannelIsActive(j2) = 1 then BASS_ChannelSlideAttribute(j2, BASS_ATTRIB_VOL, 0, 250);
+    if BASS_ChannelIsActive(pad1) = 1 then BASS_ChannelSlideAttribute(pad1, BASS_ATTRIB_VOL, 0, 250);
 
     SyncEndHandle := BASS_ChannelSetSync(pub1, BASS_SYNC_END, 0, @pub1_sync, MessageHandle);
     
@@ -1890,7 +1886,6 @@ begin
   if (Key = ord('2')) and
     (GetKeyState(VK_CONTROL) < 0) then
   begin
-    brakem1.Click;
     exit;
   end;
 
@@ -1974,7 +1969,6 @@ begin
   if (Key = ord('6')) and
     (GetKeyState(VK_CONTROL) < 0) then
   begin
-    brakem2.Click;
     exit;
   end;
 
@@ -2311,7 +2305,7 @@ begin
     BASS_ChannelSetPosition(m1, BASS_ChannelSeconds2Bytes(m1, strtofloat(StringReplace(cue1.Text, '.', ',', [rfReplaceAll]))), BASS_POS_BYTE);
     BASS_Mixer_StreamAddChannel(mixer, m1, 0);
     BASS_SetDevice(StrToInt(DSC1CART));
-    //BASS_ChannelSetAttributes(m1, -1, (100 - TrackBar1.position * (9 div 2)), -101);
+    BASS_ChannelSetAttribute(m1, BASS_ATTRIB_VOL, 1 - (TrackBar1.position / 256));
 
     if BASS_ChannelPlay(m1, False) then
     begin
@@ -2436,12 +2430,6 @@ begin
   BASS_ChannelSlideAttribute(m1, BASS_ATTRIB_VOL, 0, 3000);
 end;
 
-procedure TForm1.brakem1Click(Sender: TObject);
-begin
-// FADE MUSIC1 (TESTING)
-  //BASS_ChannelSlideAttributes(m1, 100, -2, -101, 3000);
-end;
-
 procedure TForm1.Playlist1Click(Sender: TObject);
 var
   Verif: Cardinal;
@@ -2526,12 +2514,6 @@ begin
   BASS_ChannelSlideAttribute(m2, BASS_ATTRIB_VOL, 0, 3000);
 end;
 
-procedure TForm1.brakem2Click(Sender: TObject);
-begin
-// FADE MUSIC1 (TESTING)
-  //BASS_ChannelSlideAttributes(m2, 100, -2, -101, 3000);
-end;
-
 procedure TForm1.Stop2Click(Sender: TObject);
 var
   StartPosBytes: Integer;
@@ -2598,7 +2580,7 @@ begin
     BASS_ChannelSetPosition(m2, BASS_ChannelSeconds2Bytes(m2, strtofloat(StringReplace(cue2.Text, '.', ',', [rfReplaceAll]))), BASS_POS_BYTE);
     BASS_SetDevice(StrToInt(DSC2CART));
     BASS_Mixer_StreamAddChannel(mixer, m2, 0);
-    //BASS_ChannelSetAttributes(m1, -1, (100 - TrackBar1.position * (9 div 2)), -101);
+    BASS_ChannelSetAttribute(m1, BASS_ATTRIB_VOL, 1 - (TrackBar1.position / 256));
 
     if BASS_ChannelPlay(m2, False) then
     begin
@@ -2747,7 +2729,7 @@ begin
   // FICHIER LU
       SyncEndHandle := BASS_ChannelSetSync(j1, BASS_SYNC_END, 0, @j1_sync, MessageHandle);
       playj1.Enabled := False;
-      //BASS_ChannelSetAttributes(j1, -1, (100 - TrackBar2.position * (9 div 2)), -101);
+      BASS_ChannelSetAttribute(j1, BASS_ATTRIB_VOL, 1 - (TrackBar2.position / 256));
       Timer7.Enabled := True; // vumètre
       Timer8.Enabled := True; // compteurs
 
@@ -2995,7 +2977,7 @@ begin
 
     BASS_SetDevice(StrToInt(JIN2CART));
     j2 := BASS_StreamCreateFile(False, Pchar(Path), 0, 0, flags[StrToInt(JIN2CHAN)]); // Mode normal
-    //BASS_ChannelSetAttributes(j2, -1, (100 - TrackBar4.position * (9 div 2)), -101);
+    BASS_ChannelSetAttribute(j2, BASS_ATTRIB_VOL, 1 - (TrackBar4.position / 256));
 
     if BASS_ChannelPlay(j2, False) then
     begin
