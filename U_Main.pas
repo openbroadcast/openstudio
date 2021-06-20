@@ -574,8 +574,6 @@ end;
 procedure TMain.retardfadem1Timer(Sender: TObject);
 begin
 
-  log('retardfade', True);
-
   // and (Form1.CurrentCat = 'MUSIQUES')
   if ((Events.pagedepub = True)) then
   begin
