@@ -1766,7 +1766,7 @@ begin
       if (FadeOutPub <> 0) then
       begin
         // Fade Out 3sec
-        //BASS_ChannelSlideAttributes(pub1, -1, -2, -101, 3000);
+        BASS_ChannelSlideAttribute(pub1, BASS_ATTRIB_VOL, 0, 3000);
       end
       else
       begin
@@ -2433,7 +2433,7 @@ end;
 procedure TForm1.fadem1Click(Sender: TObject);
 begin
 // FADE MUSIC1 (TESTING)
-  //BASS_ChannelSlideAttributes(m1, -1, -2, -101, 3000);
+  BASS_ChannelSlideAttribute(m1, BASS_ATTRIB_VOL, 0, 3000);
 end;
 
 procedure TForm1.brakem1Click(Sender: TObject);
@@ -2523,7 +2523,7 @@ end;
 procedure TForm1.fadem2Click(Sender: TObject);
 begin
 // FADE MUSIC1 (TESTING)
-  //BASS_ChannelSlideAttributes(m2, -1, -2, -101, 3000);
+  BASS_ChannelSlideAttribute(m2, BASS_ATTRIB_VOL, 0, 3000);
 end;
 
 procedure TForm1.brakem2Click(Sender: TObject);

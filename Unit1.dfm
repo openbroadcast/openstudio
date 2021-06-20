@@ -662,6 +662,7 @@ object Form1: TForm1
       ParentShowHint = False
       ShowHint = True
       TabOrder = 5
+      Visible = False
       OnClick = brakem2Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
@@ -1289,6 +1290,7 @@ object Form1: TForm1
       ParentShowHint = False
       ShowHint = True
       TabOrder = 5
+      Visible = False
       OnClick = brakem1Click
       HotTrackFont.Charset = ANSI_CHARSET
       HotTrackFont.Color = clWindowText
