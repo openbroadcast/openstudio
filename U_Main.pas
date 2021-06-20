@@ -145,9 +145,18 @@ begin
   Main.ButtonDJ.Enabled := True;
   Main.ButtonAuto.Enabled := False;
 
-  Main.protection.Interval := 100;
-  Main.protection.Enabled := True;
+  if (BASS_ChannelIsActive(Form1.m1) = 0) AND (BASS_ChannelIsActive(Form1.m2) = 0) then
+  begin
+    Main.log('Starting... Load and Play player 1', True);
+    Main.load1(True, True);
+  end;
+
   Main.silence.Enabled := True;
+  Main.log('Activation silence (mix sans point de cue basé sur le niveau)', True);
+
+  Main.protection.Interval := 30000;
+  Main.protection.Enabled := True;
+  Main.log('Activation protection', True);
 
   Main.ModeAuto := True;
   Main.info.Caption := 'Mode Auto';
@@ -159,15 +168,15 @@ begin
     Form1.KillDevice();
   end;
 
-  // Protection!
+  // Protection qui lève les 6 curseurs MIDI
   if(false) then
   begin
-  MidiOutput.Send(0, $E0, $70, $7F );
-  MidiOutput.Send(0, $E1, $70, $7F );
-  MidiOutput.Send(0, $E2, $70, $7F );
-  MidiOutput.Send(0, $E3, $70, $7F );
-  MidiOutput.Send(0, $E4, $70, $7F );
-  MidiOutput.Send(0, $E5, $70, $7F );
+    MidiOutput.Send(0, $E0, $70, $7F );
+    MidiOutput.Send(0, $E1, $70, $7F );
+    MidiOutput.Send(0, $E2, $70, $7F );
+    MidiOutput.Send(0, $E3, $70, $7F );
+    MidiOutput.Send(0, $E4, $70, $7F );
+    MidiOutput.Send(0, $E5, $70, $7F );
   end;
 
 end;
@@ -391,7 +400,7 @@ begin
   Application.Terminate;
 end;
 
-// Détection du silence en vue de SKIP la chanson.
+// silenceTimer: Détection du silence en vue de SKIP la chanson.
 
 procedure TMain.silenceTimer(Sender: TObject);
 var
@@ -422,7 +431,7 @@ begin
     begin
 
     // Préchargement (si pas de pub)
-      if ((Events.pagedepub = False) and ((Form1.FadeOutm1 - 2) <= TempsLu1) and (isLoad2 = False)) then
+      if ((Events.pagedepub = False) and ((Form1.FadeOutm1 - 4) <= TempsLu1) and (isLoad2 = False)) then
       begin
         log('Preload Player 2', True);
         isLoad2 := True;
@@ -433,7 +442,7 @@ begin
     // Si oui, on skip quand il faut.
       if (Form1.FadeOutm1 <= TempsLu1) then
       begin
-        //log('Player A : Point de mix: ' + FloatToStr(Form1.FadeOutm1) + ' Valeur: ' + FloatToStr(TempsLu1), True);
+        log('Player A : Point de mix: ' + FloatToStr(Form1.FadeOutm1) + ' Now: ' + FloatToStr(TempsLu1), True);
         retardfadem1.Interval := 10;
         retardfadem1.Enabled := True;
       end;
@@ -482,7 +491,7 @@ begin
 
       if (Form1.FadeOutm2 <= TempsLu2) then
       begin
-        //log('Player B : Point de mix: ' + FloatToStr(Form1.FadeOutm2) + ' Valeur: ' + FloatToStr(TempsLu2), True);
+        log('Player B : Point de mix: ' + FloatToStr(Form1.FadeOutm2) + ' Now: ' + FloatToStr(TempsLu2), True);
         retardfadem2.Interval := 10;
         retardfadem2.Enabled := True;
       end;
@@ -558,13 +567,14 @@ begin
   if ((BASS_ChannelIsActive(Form1.m1) = 0) and (BASS_ChannelIsActive(Form1.m2) = 0)) then
   begin
     load1(True, True);
-    log('Activation mode automatique - Lancement Player 1', True);
+    log('ERROR - Load and Play player1', True);
   end;
-  protection.Interval := 1500;
 end;
 
 procedure TMain.retardfadem1Timer(Sender: TObject);
 begin
+
+  log('retardfade', True);
 
   // and (Form1.CurrentCat = 'MUSIQUES')
   if ((Events.pagedepub = True)) then
