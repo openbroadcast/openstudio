@@ -160,12 +160,15 @@ begin
   end;
 
   // Protection!
+  if(false) then
+  begin
   MidiOutput.Send(0, $E0, $70, $7F );
   MidiOutput.Send(0, $E1, $70, $7F );
   MidiOutput.Send(0, $E2, $70, $7F );
   MidiOutput.Send(0, $E3, $70, $7F );
   MidiOutput.Send(0, $E4, $70, $7F );
   MidiOutput.Send(0, $E5, $70, $7F );
+  end;
 
 end;
 
