@@ -4,6 +4,6 @@
 *.ddp
 config.ini
 icons/
-log/
+log/*.txt
 dsp/
 lic/
