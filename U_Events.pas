@@ -218,7 +218,7 @@ begin
    // Automation
     pagedepub := False; // Plus rien à passer
     pagedepubPrior := False; // Plus rien à passer (Prior)
-    Main.silence.Enabled := False;
+    Main.automix.Enabled := False;
     Main.protection.Enabled := False;
 
    // Bloquer l'entrée et la sortie

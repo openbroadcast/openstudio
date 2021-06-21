@@ -1671,7 +1671,7 @@ begin
 
   // Réactiver le silence timer (si on est en mode Auto..)
     if (main.ModeAuto = True) then begin
-      main.silence.Enabled := True;
+      main.automix.Enabled := True;
       main.protection.Enabled := True;
       events.findevents.Enabled := True;
     end;
@@ -1739,7 +1739,7 @@ begin
 
         main.protection.Interval := 1000;
         main.protection.Enabled := True;
-        main.silence.Enabled := True;
+        main.automix.Enabled := True;
 
       // Ré Activer l'entrée et la sortie
         Main.ButtonDJ.Enabled := True;
