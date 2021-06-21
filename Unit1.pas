@@ -189,9 +189,6 @@ type
     procedure Timer11Timer(Sender: TObject);
     procedure TrackBar4Change(Sender: TObject);
     procedure JingleChoiceChange(Sender: TObject);
-    procedure SpinButton1UpClick(Sender: TObject);
-    procedure SpinButton2UpClick(Sender: TObject);
-    procedure SpinButton2DownClick(Sender: TObject);
     procedure StringGrid1DblClick(Sender: TObject);
     procedure Ajoutau1Click(Sender: TObject);
     procedure Ajouteraupav1Click(Sender: TObject);
@@ -1026,7 +1023,7 @@ begin
 
 	if (HIWORD(BASS_GetVersion) <> BASSVERSION) then
 	begin
-		MessageBox(0,'An incorrect version of BASS.DLL was loaded',0,MB_ICONERROR);
+		MessageBox(0,'An incorrect version of BASS.DLL was loaded', NIL ,MB_ICONERROR);
 		Halt;
 	end;
 
@@ -1062,15 +1059,14 @@ begin
   // Debug Mode
   if (ParamStr(1) = '/debug') then
   begin
+    ModeDebug := True;
     StringGrid4.Visible := True;
     PubPlay.Visible := True;
     pubcurdelete.Visible := True;
     formsysop.Visible := True;
-    ModeDebug := True;
-    Form1.Height:=745;
-    StringGrid4.Visible:=True;
     pubplay.Visible:=True;
     pubcurdelete.Visible:=True;
+    Form1.Height:=745;
   end
   else
   begin
@@ -1482,44 +1478,6 @@ begin
 
 end;
 
-procedure TForm1.SpinButton1UpClick(Sender: TObject);
-var
-  TempoTemp, FrequenceTemp, PitchTemp: Double;
-begin
-  //BASS_FX_TempoGet(m1, TempoTemp, FrequenceTemp, PitchTemp); //  On récupère
-  FrequenceTemp := FrequenceTemp + 100;
-  //BASS_FX_TempoSet(m1, TempoTemp, FrequenceTemp, PitchTemp); // Frequence
-
-  //SpinButton1.Tag := SpinButton1.Tag + 1;
-  //Label36.Caption := IntToStr(SpinButton1.Tag);
-
-end;
-
-procedure TForm1.SpinButton2UpClick(Sender: TObject);
-var
-  TempoTemp, FrequenceTemp, PitchTemp: Double;
-begin
-  //BASS_FX_TempoGet(m2, TempoTemp, FrequenceTemp, PitchTemp); //  On récupère
-  FrequenceTemp := FrequenceTemp + 100;
-  //BASS_FX_TempoSet(m2, TempoTemp, FrequenceTemp, PitchTemp); // Frequence
-
-  //SpinButton2.Tag := SpinButton2.Tag + 1;
-  //Label37.Caption := IntToStr(SpinButton2.Tag);
-end;
-
-procedure TForm1.SpinButton2DownClick(Sender: TObject);
-var
-  TempoTemp, FrequenceTemp, PitchTemp: Double;
-begin
-  //BASS_FX_TempoGet(m2, TempoTemp, FrequenceTemp, PitchTemp); //  On récupère
-  FrequenceTemp := FrequenceTemp - 100;
-  //BASS_FX_TempoSet(m2, TempoTemp, FrequenceTemp, PitchTemp); // Frequence
-
-  //SpinButton2.Tag := SpinButton2.Tag - 1;
-  //Label37.Caption := IntToStr(SpinButton2.Tag);
-
-end;
-
 procedure TForm1.StringGrid1DblClick(Sender: TObject);
 begin
   Pad(StringGrid1.cells[5, StringGrid1.Row]);
@@ -1822,7 +1780,6 @@ procedure TForm1.ApplicationEvents1ShortCut(var Msg: TWMKey;
   var Handled: Boolean);
 var
 Key: Word;
-Tempo, Samplerate, Pitch : Double;
 begin
   Key := Msg.CharCode;
 
