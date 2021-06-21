@@ -723,17 +723,17 @@ object Main: TMain
       F81FF00FFFFF803FF81FF00FFFFFC0FF00000000000000000000000000000000
       000000000000}
   end
-  object silence: TTimer
+  object automix: TTimer
     Enabled = False
     Interval = 25
-    OnTimer = silenceTimer
+    OnTimer = automixTimer
     Left = 72
     Top = 52
   end
-  object reactsilence: TTimer
+  object automix_delay: TTimer
     Enabled = False
     Interval = 10
-    OnTimer = reactsilenceTimer
+    OnTimer = automix_delayTimer
     Left = 136
     Top = 51
   end

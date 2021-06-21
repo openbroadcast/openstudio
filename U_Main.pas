@@ -10,8 +10,8 @@ uses
 type
   TMain = class(TForm)
     ImageList1: TImageList;
-    silence: TTimer;
-    reactsilence: TTimer;
+    automix: TTimer;
+    automix_delay: TTimer;
     protection: TTimer;
     retardfadem2: TTimer;
     retardfadem1: TTimer;
@@ -38,8 +38,8 @@ type
     procedure ButtonAutoClick(Sender: TObject);
     procedure ButtonDJClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure silenceTimer(Sender: TObject);
-    procedure reactsilenceTimer(Sender: TObject);
+    procedure automixTimer(Sender: TObject);
+    procedure automix_delayTimer(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Siteconstructeur1Click(Sender: TObject);
     procedure ConfigLocaleClick(Sender: TObject);
@@ -121,10 +121,10 @@ procedure ModeDJActivate(isStart: Boolean);
 begin
 
   Main.protection.Enabled := False;
-  Main.silence.Enabled := False;
+  Main.automix.Enabled := False;
   Main.retardfadem1.Enabled := False;
   Main.retardfadem2.Enabled := False;
-  Main.reactsilence.Enabled := False;
+  Main.automix_delay.Enabled := False;
 
   Main.ButtonDJ.Enabled := False;
   Main.ButtonAuto.Enabled := True;
@@ -151,8 +151,8 @@ begin
     Main.load1(True, True);
   end;
 
-  Main.silence.Enabled := True;
-  Main.log('Activation silence (mix sans point de cue basé sur le niveau)', True);
+  Main.automix.Enabled := True;
+  Main.log('Activation automix', True);
 
   Main.protection.Interval := 30000;
   Main.protection.Enabled := True;
@@ -402,7 +402,7 @@ end;
 
 // silenceTimer: Détection du silence en vue de SKIP la chanson.
 
-procedure TMain.silenceTimer(Sender: TObject);
+procedure TMain.automixTimer(Sender: TObject);
 var
   Temps1: Single;
   TempsLu1: Single;
@@ -521,10 +521,10 @@ begin
 // fin
 end;
 
-procedure TMain.reactsilenceTimer(Sender: TObject);
+procedure TMain.automix_delayTimer(Sender: TObject);
 begin
-  silence.Enabled := True; // Retour de silence timer
-  reactsilence.Enabled := False; // Je me coupe
+  automix.Enabled := True;
+  automix_delay.Enabled := False;
 end;
 
 procedure TMain.About1Click(Sender: TObject);
@@ -577,18 +577,18 @@ begin
   // and (Form1.CurrentCat = 'MUSIQUES')
   if ((Events.pagedepub = True)) then
   begin
-    silence.Enabled := False; // Plus de détection silence
+    automix.Enabled := False;
     BASS_ChannelSlideAttribute(Form1.m1, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Event
     Events.diffuser.OnClick(sender);
 
-    reactsilence.Interval := Form1.AUTOFADEOUT + 2500;
-    reactsilence.Enabled := True; // Détection silence, mais quelques ms après.
+    automix_delay.Interval := Form1.AUTOFADEOUT + 2500;
+    automix_delay.Enabled := True; // Détection silence, mais quelques ms après.
     retardfadem1.Enabled := False; // Me coupe!
   end
   else
   begin
-    silence.Enabled := False; // Plus de détection silence
+    automix.Enabled := False;
     BASS_ChannelSlideAttribute(Form1.m1, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Lecteur suivant (on passe de m1 à m2 ici)
 
@@ -603,8 +603,8 @@ begin
       log('Play Player 2 (Chargement en cours)', True);
     end;
 
-    reactsilence.Interval := Form1.AUTOFADEOUT + 2500;
-    reactsilence.Enabled := True; // Détection silence, mais quelques ms après.
+    automix_delay.Interval := Form1.AUTOFADEOUT + 2500;
+    automix_delay.Enabled := True; // Détection silence, mais quelques ms après.
     retardfadem1.Enabled := False; // Me coupe!
   end;
 
@@ -616,18 +616,18 @@ begin
   // and (Form1.CurrentCat = 'MUSIQUES')
   if ((Events.pagedepub = True)) then
   begin
-    silence.Enabled := False; // Plus de détection silence
+    automix.Enabled := False;
     BASS_ChannelSlideAttribute(Form1.m2, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Event
     Events.diffuser.OnClick(sender);
 
-    reactsilence.Interval := Form1.AUTOFADEOUT + 2500;
-    reactsilence.Enabled := True; // Détection silence, mais quelques ms après.
+    automix_delay.Interval := Form1.AUTOFADEOUT + 2500;
+    automix_delay.Enabled := True; // Détection silence, mais quelques ms après.
     retardfadem2.Enabled := False; // Me coupe!
   end
   else
   begin
-    silence.Enabled := False; // Plus de détection silence
+    automix.Enabled := False;
     BASS_ChannelSlideAttribute(Form1.m2, BASS_ATTRIB_VOL, 0, Form1.AUTOFADEOUT);
       // Lecteur suivant (on passe de m2 à m1 ici)
 
@@ -642,8 +642,8 @@ begin
       log('Play Player 1 (Chargement en cours)', True);
     end;
 
-    reactsilence.Interval := Form1.AUTOFADEOUT + 2500;
-    reactsilence.Enabled := True; // Détection silence, mais quelques ms après.
+    automix_delay.Interval := Form1.AUTOFADEOUT + 2500;
+    automix_delay.Enabled := True; // Détection silence, mais quelques ms après.
     retardfadem2.Enabled := False; // Me coupe!
 
   end;
