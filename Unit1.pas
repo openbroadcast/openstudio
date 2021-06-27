@@ -995,10 +995,10 @@ begin
   StringGrid4.ColCount := 6;
   StringGrid4.ColWidths[0] := 0;
   StringGrid4.ColWidths[1] := 0;
-  StringGrid4.ColWidths[2] := 100;
-  StringGrid4.ColWidths[3] := 100;
-  StringGrid4.ColWidths[4] := 200;
-  StringGrid4.ColWidths[5] := 30;
+  StringGrid4.ColWidths[2] := 400;
+  StringGrid4.ColWidths[3] := 50;
+  StringGrid4.ColWidths[4] := 50;
+  StringGrid4.ColWidths[5] := 600;
 
   StringGrid1.ColCount := 6;
   StringGrid1.ColWidths[0] := 0;

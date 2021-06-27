@@ -5,7 +5,7 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsNone
   Caption = 'Mode DJ'
-  ClientHeight = 584
+  ClientHeight = 585
   ClientWidth = 1015
   Color = 5183744
   TransparentColorValue = clRed
