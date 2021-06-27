@@ -118,7 +118,7 @@ object clock: Tclock
       Alignment = taCenter
       Anchors = [akLeft, akTop, akRight]
       AutoSize = False
-      Caption = 'mardi 1 janvier 2013'
+      Caption = 'dimanche 27 juin 2021'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -21

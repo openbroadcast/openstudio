@@ -233,12 +233,15 @@ begin
     Main.log('Lancement plage pub', True);
 
   // Protection!
-    MidiOutput.Send(0, $E0, $00, $00);
-    MidiOutput.Send(0, $E1, $00, $00);
-    MidiOutput.Send(0, $E2, $00, $00);
-    MidiOutput.Send(0, $E3, $00, $00);
-    MidiOutput.Send(0, $E4, $00, $00);
-    MidiOutput.Send(0, $E5, $00, $00);
+    if(false) then
+    begin
+      MidiOutput.Send(0, $E0, $00, $00);
+      MidiOutput.Send(0, $E1, $00, $00);
+      MidiOutput.Send(0, $E2, $00, $00);
+      MidiOutput.Send(0, $E3, $00, $00);
+      MidiOutput.Send(0, $E4, $00, $00);
+      MidiOutput.Send(0, $E5, $00, $00);
+    end;
 
   end;
 end;
