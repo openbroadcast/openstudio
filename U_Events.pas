@@ -252,16 +252,11 @@ begin
 end;
 
 procedure TEvents.decompteTimer(Sender: TObject);
-var
-  MS: TMemoryStatus;
 begin
 
   // Horloge
   clock.heure.Caption := FormatDateTime('hh:mm:ss', Time);
   clock.date.Caption := FormatDateTime('dddd dd mmmm YYYY', Date);
-
-  GlobalMemoryStatus(MS);
-  Main.Memory1.Caption := FormatFloat('"Mémoire: "#,#" Ko"', (Ms.dwAvailPhys / 1024)) + FormatFloat('"/"#,###" Ko"', (MS.dwTotalPhys / 1024)) + Format(' (%d %%)', [MS.dwMemoryLoad]);
 
   // Si le player pub tourne, on active le décompte
   if ((BASS_ChannelIsActive(Form1.pub1) = 1)) then

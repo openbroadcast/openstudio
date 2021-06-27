@@ -45,21 +45,6 @@ object Main: TMain
     Font.Style = []
     ParentFont = False
   end
-  object Memory1: TLabel
-    Left = 424
-    Top = 32
-    Width = 321
-    Height = 17
-    Alignment = taCenter
-    AutoSize = False
-    Caption = 'Charge syst'#232'me'
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clBlue
-    Font.Height = -13
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0

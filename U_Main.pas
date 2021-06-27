@@ -29,7 +29,6 @@ type
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
     ToolButton5: TToolButton;
-    Memory1: TLabel;
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     function load1(Load : Boolean; Start: Boolean): Boolean;
