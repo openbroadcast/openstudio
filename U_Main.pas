@@ -563,7 +563,7 @@ end;
 
 procedure TMain.protectionTimer(Sender: TObject);
 begin
-  if ((BASS_ChannelIsActive(Form1.m1) = 0) and (BASS_ChannelIsActive(Form1.m2) = 0)) then
+  if ((BASS_ChannelIsActive(Form1.m1) = 0) and (BASS_ChannelIsActive(Form1.m2) = 0)) and (Events.pagedepub = False) then
   begin
     load1(True, True);
     log('ERROR - Load and Play player1', True);
