@@ -1,6 +1,6 @@
 object formsysop: Tformsysop
-  Left = 263
-  Top = 228
+  Left = 782
+  Top = 291
   ActiveControl = debug
   AutoSize = True
   BorderStyle = bsSingle
@@ -159,6 +159,7 @@ object formsysop: Tformsysop
     object ToolButton1: TToolButton
       Left = 0
       Top = 2
+      Hint = 'Show Form1'
       Caption = 'Ajout'#233' '#224' l'#39'encha'#238'neur'
       ImageIndex = 0
       OnClick = ToolButton1Click
@@ -166,6 +167,7 @@ object formsysop: Tformsysop
     object ToolButton2: TToolButton
       Left = 23
       Top = 2
+      Hint = 'Hide Form1'
       Caption = 'ToolButton2'
       ImageIndex = 1
       OnClick = ToolButton2Click
@@ -175,7 +177,7 @@ object formsysop: Tformsysop
     Left = 8
     Top = 40
     Bitmap = {
-      494C010102000400040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010102000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000E1E1E100E3E3
       E300FAFAFA000000000000000000000000000000000000000000000000000000
@@ -311,6 +313,7 @@ object formsysop: Tformsysop
       0007000700000000000100010000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000008000800000000000
-      F001F00000000000FF03FF0000000000}
+      F001F00000000000FF03FF000000000000000000000000000000000000000000
+      000000000000}
   end
 end

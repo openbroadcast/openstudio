@@ -1,6 +1,6 @@
 object Splash: TSplash
-  Left = 469
-  Top = 307
+  Left = 647
+  Top = 326
   AlphaBlend = True
   AlphaBlendValue = 0
   BorderStyle = bsNone
